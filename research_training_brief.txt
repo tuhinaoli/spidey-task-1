@@ -3,7 +3,7 @@ INTERNAL FEASIBILITY MEMORANDUM
 DATE: June 8, 2026
 TO: Dr. Elena Vance, Director of ML Research Infrastructure
 FROM: ML Systems Research Group
-SUBJECT: Feasibility Audit and Compute Region Selection for Aegis-35B Training Run
+SUBJECT: Final Cluster Selection & Feasibility Audit for Aegis-35B Training Run
 
 =========================================
 1. Project Scope & Objectives
