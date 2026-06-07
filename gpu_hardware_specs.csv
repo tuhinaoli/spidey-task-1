@@ -1,0 +1,5 @@
+gpu_model,architecture,vram_gb,peak_fp32_tflops,peak_fp16_tensor_tflops,peak_int8_tensor_tflops,tdp_watts,interconnect_gb_s
+Nvidia H100 SXM5 80GB,Hopper,80,67.0,989.0,1978.0,700,900
+Nvidia A100 SXM4 80GB,Ampere,80,19.5,312.0,624.0,400,600
+Nvidia L40S 48GB,Ada Lovelace,48,91.6,366.0,732.0,350,113
+Nvidia A10G 24GB,Ampere,24,31.2,125.0,250.0,300,600
