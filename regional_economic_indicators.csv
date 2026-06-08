@@ -1,0 +1,4 @@
+project_name,region,risk_free_rate,risk_spread,pestel_risk_score,inflation_index,asset_code,tax_rate,royalty_rate
+Project Alpha,us-east,0.05,0.03,2,102.5,A1,0.21,0.2
+Project Beta,eu-west,0.05,0.04,8,103.0,B2,0.25,0.0
+Project Gamma,us-west,0.05,0.05,5,104.0,C3,0.3,0.0

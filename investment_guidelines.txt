@@ -1,0 +1,100 @@
+INTERNAL FINANCIAL MEMORANDUM
+
+DATE: June 8, 2026
+TO: Dr. Elena Vance, Chief Financial Officer
+FROM: Corporate Finance & Capital Allocation Group
+SUBJECT: Capital Allocation Audit and Project Feasibility Review
+
+=========================================
+1. Executive Mandate & Project Scope
+=========================================
+We are auditing three competing regional capital expansion projects (Project Alpha, Project Beta, and Project Gamma) to select the single optimal investment for the upcoming fiscal year. Our objective is to maximize shareholder wealth while strictly complying with corporate risk, budget, and hurdle rate policies.
+
+=========================================
+2. Core Financial Constraints
+=========================================
+The capital allocation decision is governed by three strict compliance caps:
+- Capital Budget Cap: The total initial capital expenditure (Capex) for the selected project cannot exceed $390,000. Due to liquidity limits, we can fund at most one project.
+- Hurdle Rate Cap: The Internal Rate of Return (IRR) of the project must be greater than or equal to 15.00%. Any project below this rate is automatically rejected.
+- Net Present Value (NPV) Cap: The project must deliver a positive Net Present Value (NPV) of at least $50,000.
+
+=========================================
+3. Mathematical Formulas & Rate Compounding
+=========================================
+All calculations must be performed using the following exact formulas and logic:
+- Compounded Risk-Adjusted Discount Rate (r):
+    To account for inflation and PESTEL risk, the nominal discount rate (r) must compound the total real discount rate (base discount rate plus the PESTEL risk premium) and the regional inflation rate to preserve purchasing power:
+    (1 + r) = (1 + base_discount_rate + Risk_Premium) * (1 + inflation_rate)
+  Where:
+    - base_discount_rate is defined as the sum of the risk-free rate and the regional risk spread listed in regional_economic_indicators.csv.
+    - inflation_rate is derived from the regional inflation index in the CSV as: inflation_rate = (inflation_index / 100) - 1.
+    - Risk_Premium must be calculated from the project's PESTEL risk score (S) from the CSV using the quadratic risk relation: Risk_Premium = S^2 / 1000. (This quadratic function is illustrated in the visual chart's corner).
+
+- Net Present Value (NPV):
+    NPV = -Capex_adjusted + Sum_over_t [ Adjusted_Cash_Flow_t / (1 + r)^t ]
+  Where:
+    - Capex_adjusted is the initial capital expenditure after applying overrides.
+    - Adjusted_Cash_Flow_t is the net cash flow in Year t after tax shield and royalty adjustments.
+    - r is the compounded risk-adjusted discount rate.
+    - t is the year (1 to 5).
+
+- Internal Rate of Return (IRR):
+    Solve for IRR where NPV = 0:
+    Capex_adjusted = Sum_over_t [ Adjusted_Cash_Flow_t / (1 + IRR)^t ]
+    (Express IRR as a percentage rounded to two decimal places).
+
+=========================================
+4. Depreciation Tax Shield Adjustments
+=========================================
+To model post-tax cash flows, each project's cash flows must be adjusted to account for the depreciation tax shield. The annual tax shield is calculated as:
+    Tax_Shield_t = Capex_adjusted * Depreciation_Rate_t * Tax_Rate
+  Where:
+    - Capex_adjusted is the adjusted initial capital expenditure of the project.
+    - Tax_Rate is the regional tax rate listed in regional_economic_indicators.csv.
+    - Depreciation_Rate_t is the annual depreciation percentage for Year t. To find this, look up the project's asset code in regional_economic_indicators.csv and cross-reference it with the Depreciation Rate Table in the Appendix.
+  
+  The tax shield increases the cash flow for the year:
+    Adjusted_Cash_Flow_t = Cash_Flow_t + Tax_Shield_t
+    (Note: Year 4 cash flow must be adjusted for royalty fees before adding the tax shield).
+
+=========================================
+5. Corporate Policy Overrides & Decision Rules
+=========================================
+- Green Initiative Subsidy (Capex Override): To promote sustainability, Project Beta (located in eu-west) is eligible for a 15.00% green subsidy. This subsidy directly reduces the initial capital expenditure (Capex) listed in the CSV by 15.00% for all NPV, IRR, and tax shield calculations.
+- Franchise Royalty Fee (Cash Flow Override): For Project Alpha (located in us-east), the Year 4 cash flow represents gross revenue. To determine net cash flow for NPV and IRR calculations, this Year 4 gross cash flow must be reduced by the project's regional royalty rate listed in the CSV.
+- Corporate Decision Rule (NPV Primacy): When projects are mutually exclusive (due to budget constraints) and there is a conflict between NPV and IRR rankings (i.e. one project has a higher NPV but a lower IRR), the Net Present Value (NPV) method must be used as the primary decision rule to select the project that maximizes absolute shareholder wealth.
+
+=========================================
+6. Deliverables Required
+=========================================
+You must compile and provide two outputs:
+1. "capital_feasibility_sheet.csv": A CSV table logging all three projects. It must use these exact column headers:
+   project_name,region,adjusted_capex,risk_adjusted_rate,npv_usd,irr_percent,is_feasible
+   Round all numeric calculations to two decimal places. Mark is_feasible as YES or NO.
+2. "investment_memorandum.docx": A formal recommendation memo addressed to CFO Dr. Elena Vance. The memorandum must clearly state the recommended project and provide a detailed analysis of why all other projects fail the hurdle rate, budget, or NPV caps, citing exact calculated figures for each project. It must also explain the NPV-IRR conflict and justify the decision based on the primacy of the NPV rule.
+
+=========================================
+APPENDIX: Depreciation Rate Table
+=========================================
+The asset lifetime is mapped from the CSV asset code:
+- Asset Code A1 represents Class I (3-year life):
+  - Year 1: 33.33% (0.3333)
+  - Year 2: 33.33% (0.3333)
+  - Year 3: 33.33% (0.3333)
+  - Year 4: 0.00% (0.00)
+  - Year 5: 0.00% (0.00)
+
+- Asset Code B2 represents Class II (5-year life):
+  - Year 1: 20.00% (0.20)
+  - Year 2: 20.00% (0.20)
+  - Year 3: 20.00% (0.20)
+  - Year 4: 20.00% (0.20)
+  - Year 5: 20.00% (0.20)
+
+- Asset Code C3 represents Class III (10-year life):
+  - Year 1: 10.00% (0.10)
+  - Year 2: 10.00% (0.10)
+  - Year 3: 10.00% (0.10)
+  - Year 4: 10.00% (0.10)
+  - Year 5: 10.00% (0.10)
+  (Years 6 to 10 are depreciated at 10.00% each but are outside our 5-year planning horizon).
