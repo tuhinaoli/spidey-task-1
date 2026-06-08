@@ -1,4 +1,0 @@
-project_name,region,base_discount_rate,initial_capex,pestel_risk_classification,inflation_rate,asset_class,tax_rate,royalty_rate
-Project Alpha,us-east,0.08,350000,Low,0.025,Class I,0.21,0.2
-Project Beta,eu-west,0.09,450000,High,0.03,Class II,0.25,0.0
-Project Gamma,us-west,0.1,400000,Medium,0.04,Class III,0.3,0.0
