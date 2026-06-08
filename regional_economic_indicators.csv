@@ -1,0 +1,4 @@
+project_name,region,base_discount_rate,initial_capex,pestel_risk_score,pestel_risk_classification
+Project Alpha,us-east,0.08,350000,4,Low
+Project Beta,eu-west,0.09,450000,8,High
+Project Gamma,us-west,0.1,400000,5,Medium
